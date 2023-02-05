@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora do cafézin</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: monocraft;
+            font-size: 15pt;
+            background-color: rgb(119, 119, 119);
+            color: white;
+        }
+        div#padrao{
+            background-color: #B4ABAB;
+            width: 350px;
+            height: 500px;
+            border-radius: 20px;
+            color: black; 
+            box-shadow: 5px 5px rgba(0, 0, 0, 0.527);
+            display: inline-block;
+            vertical-align: middle;
+        }   
+        footer{
+            margin-top: 10px;
+        }
+        div#foto{
+            width: 400px;
+            height: 400px;
+            background-color: white;
+            border-radius: 20px;
+            color: black; 
+            box-shadow: 5px 5px rgba(0, 0, 0, 0.527);
+            
+        }
+        p{
+            text-align: left;
+            padding-left: 10px;
+        }
+        h2{
+            font-size: 20pt;
+            padding-top: 10px;
+        }
+        img{
+            margin-top: 50px;
+        }
+        input#car{
+            text-align: center;
+            margin: auto;
+            position: relative;
+            width: 330px;
+            height: 90px;
+            border-radius: 20px;
+            color: white;
+            font-size: 20pt;
+            background-color:  rgba(78, 68, 49, 0.418);
+            font-family: monocraft;
+
+        }
+        input#qtd{
+            width: 70px;
+            height: 25px;
+            font-family: monocraft;
+            font-size: 15pt;
+        }
+        p#msg{
+            margin: auto;
+            text-align: center;
+        }
+        input#nomecafe{
+            width: 300px;
+            height: 50px;
+            font-family: monocraft;
+            font-size: 10pt;
+            margin: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body >
+    <header>
+        <h1>Coffee Time :)</h1>
+    </header>
+
+    <div id="padrao">
+        <h2>Cardápio:</h2> 
+        <p>
+            <input type="radio" name="cafe" id="cafe1">
+            <label for="cafe1">Flat White</label><br>
+            <input type="radio" name="cafe" id="cafe2">
+            <label for="cafe2">Americano</label><br>
+            <input type="radio" name="cafe" id="cafe3">
+            <label for="cafe3">Macchiato</label><br>
+            <input type="radio" name="cafe" id="cafe4">
+            <label for="cafe4">Espresso</label><br>
+            <input type="radio" name="cafe" id="cafe5">
+            <label for="cafe5">Cappuccino</label><br>
+            <input type="radio" name="cafe" id="cafe6">
+            <label for="cafe6">Take away</label><br>
+            <input type="radio" name="cafe" id="cafe7">
+            <label for="cafe7">Con Panna</label><br>
+            <input type="radio" name="cafe" id="cafe8">
+            <label for="cafe8">Mocha</label><br>
+            <input type="radio" name="cafe" id="cafe9">
+            <label for="cafe9">Caramel Macchiato</label><br>
+            <p>
+                Tamanho:
+                <input type="radio" name="tamanho" id="small" checked>
+                <label for="small">P</label>
+                <input type="radio" name="tamanho" id="medium">
+                <label for="medium">M</label>
+                <input type="radio" name="tamanho" id="large">
+                <label for="large">G</label><br><br>
+
+                Quantidade:
+                <input type="number" min="0" id="qtd">
+                <br><br>
+                <input type="button" value="Add Carrinho" onclick="carregar()" id="car" onmouseenter="entrou()" onmouseleave="saiu()"><br>
+            </p>
+        </p> 
+    </div>
+    
+    <div id="padrao">
+        <img id="imagem" src="" alt="" width="210px">
+        
+        <input id="nomecafe" type="text" placeholder="Digite aqui o nome do seu café">
+        <p id="msg">Monte seu café ao lado<br><-----------------------</p>
+    </div>
+        
+    <footer>
+        by: Lucas Kendy
+    </footer>
+    
+    <script>
+        var nomecafe=document.getElementById('nomecafe')
+        var car= document.getElementById('car')
+        function saiu(){
+            car.style.width=('330px')
+            car.style.height=('90px')
+        }
+        function entrou(){
+            car.style.width=('335px')
+            car.style.height=('95px')
+        }
+        function carregar(){
+            if(nomecafe.value==''){
+                window.alert("insira um nome para o seu cafe")
+            }
+            else{
+                var imagem=document.getElementById('imagem')
+                var mensagem=document.getElementById('msg')
+                var cafe=document.getElementsByName('cafe')
+                mensagem.style.textAlign=('center')
+                if(cafe[0].checked){ 
+                    mensagem.innerHTML=('Flat White')
+                    imagem.setAttribute('src','001.png')
+                }else if(cafe[1].checked){
+                    mensagem.innerHTML=('Americano')
+                    imagem.setAttribute('src','002.png')
+                }else if(cafe[2].checked){
+                    mensagem.innerHTML=('Macchiato')
+                    imagem.setAttribute('src','003.png')
+                }else if(cafe[3].checked){
+                    mensagem.innerHTML=('Espresso')
+                    imagem.setAttribute('src','004.png')
+                }else if(cafe[4].checked){
+                    mensagem.innerHTML=('Cappuccino')
+                    imagem.setAttribute('src','005.png')
+                }else if(cafe[5].checked){
+                    mensagem.innerHTML=('Take Away')
+                    imagem.setAttribute('src','006.png')
+                }else if(cafe[6].checked){
+                    mensagem.innerHTML=('Con Panna')
+                    imagem.setAttribute('src','007.png')
+                }else if(cafe[7].checked){
+                    mensagem.innerHTML=('Mocha')
+                    imagem.setAttribute('src','008.png')
+                }else if(cafe[8].checked){
+                    mensagem.innerHTML=('Caramel Macchiato')
+                    imagem.setAttribute('src','009.png')
+                }
+
+                var tamanho=document.getElementsByName('tamanho')
+                var tamanhocafe="Normal"
+                if(tamanho[0].checked){
+                    tamanhocafe="Pequeno"
+                }else if(tamanho[1].checked){
+                    tamanhocafe="Medio"
+                }else{
+                    tamanhocafe="Grande"
+                }
+                
+                var qtd=(document.getElementById('qtd'))
+                var pagamento=0
+                if(Number(qtd.value)>1 || Number(qtd.value)<10){
+                    pagamento=Math.round(Math.random()*10)
+                }
+                else if(Number(qtd.value)>10 || Number(qtd.value)<20){
+                    pagamento=Math.round(Math.random()*30)
+                }
+
+                /*
+                mensagem.delay(1000).innerHTML+=("Aguarde, estamos esquentando a água...")
+                mensagem.delay(1000).innerHTML+=('.')
+                mensagem.delay(1000).innerHTML+=('.')
+                mensagem.delay(1000).innerHTML+=('.')
+                */
+                mensagem.innerHTML=(`Cafe do(a) ${nomecafe.value}`)
+                mensagem.innerHTML+=(`<br> ${tamanhocafe}, x${qtd.value}<br>R$:${pagamento}`)
+            }
+            
+        }
+        
+    </script>
+</body>
+</html>
